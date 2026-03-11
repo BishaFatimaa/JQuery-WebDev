@@ -1,0 +1,255 @@
+/* This file has the css styles for all the html elements in the spreadsheet.html file, each style has a comment for what it is for */
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: #eef0f5;
+  color: #111827;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── DARK TOP HEADER ── */
+.page-header {
+  background: #111827;
+  color: #ffffff;
+  padding: 1.5rem 2rem 1.25rem;
+  width: 100%;
+}
+
+.page-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: .25rem;
+}
+
+.page-header .subtitle {
+  font-size: .875rem;
+  color: #9ca3af;
+}
+
+/* ── PAGE BODY ── */
+.page-main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── SELECTION SUMMARY CARD ── */
+#summary-panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 1rem;
+}
+
+#summary-panel h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: .85rem;
+}
+
+/* Horizontal row of stat boxes */
+.summary-stats {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr;
+  gap: .75rem;
+}
+
+.stat-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: .6rem .85rem;
+}
+
+.stat-label {
+  font-size: .72rem;
+  color: #6b7280;
+  margin-bottom: .2rem;
+}
+
+.stat-value {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ── INSTRUCTIONS BOX ── */
+#instructions-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: .85rem 1.1rem;
+  margin-top: .75rem;
+}
+
+#instructions-box h3 {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: .4rem;
+}
+
+#instructions-box ul {
+  padding-left: 1.2rem;
+  color: #374151;
+  font-size: .82rem;
+}
+
+#instructions-box li { margin-bottom: .2rem; }
+
+/* ── GRADEBOOK CARD ── */
+#gradebook-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+#gradebook-card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+/* ── TABLE CONTAINER ── */
+#table-container {
+  overflow-x: auto;
+}
+
+/* ── GRADEBOOK TABLE ── */
+#gradebook-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: .85rem;
+}
+
+#gradebook-table th,
+#gradebook-table td {
+  padding: .55rem 1rem;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── COLUMN HEADERS (assessment names) ── */
+.col-header {
+  background: #d0d0d0;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+}
+
+.col-header:hover   { background: #b8b8b8; }
+
+/* ── ROW HEADERS (student names) ── */
+.row-header {
+  background: #d0d0d0;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  transition: background .15s;
+}
+
+.row-header:hover   { background: #b8b8b8; }
+
+/* Corner "Student" cell */
+.corner-cell {
+  background: #d0d0d0;
+  font-weight: 600;
+}
+
+/* ── GRADE CELLS ── */
+.grade-cell {
+  color: #374151;
+  cursor: pointer;
+  transition: background .1s;
+}
+
+.grade-cell:hover { background: #f3f4f6; }
+
+/* ── SELECTED CELLS ── */
+.grade-cell.selected {
+  background: #e0e0ff;
+  color: #3730a3;
+  font-weight: 600;
+}
+
+/* ── ACTIVE (clicked) HEADER ── */
+.col-header.header-active,
+.row-header.header-active {
+  background: #c7c7e8;
+}
+
+/* ── INLINE EDIT INPUT ── */
+.cell-input {
+  width: 100%;
+  min-width: 50px;
+  padding: .15rem .3rem;
+  border: 2px solid #6366f1;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: .85rem;
+  background: #ffffff;
+  color: #111827;
+  outline: none;
+  text-align: center;
+}
+
+/* ── CHART CARD ── */
+#chart-wrapper {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: none;
+}
+
+#chart-wrapper.active { display: block; }
+
+#chart-wrapper h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: .75rem;
+}
+
+#chart-container { width: 100%; }
+
+/* D3 chart internals */
+.chart-axis text  { font-family: inherit; font-size: .72rem; fill: #6b7280; }
+.chart-axis path,
+.chart-axis line  { stroke: #e5e7eb; }
+.chart-grid line  { stroke: #f3f4f6; stroke-dasharray: 3 3; }
+.chart-grid path  { stroke: none; }
+.bar-label        { font-family: inherit; font-size: .68rem; fill: #6b7280; }
+
+/* ── LOADING / ERROR ── */
+.loading-msg { padding: 1rem; color: #6b7280; }
+.error-msg   { padding: 1rem; color: #dc2626; }
+.error-msg code {
+  background: #fef2f2;
+  padding: .1rem .3rem;
+  border-radius: 3px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .summary-stats { grid-template-columns: 1fr 1fr; }
+  .page-main     { padding: 0 1rem 2rem; }
+}

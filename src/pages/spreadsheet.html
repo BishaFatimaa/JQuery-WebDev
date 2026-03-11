@@ -1,0 +1,85 @@
+<!-- src/pages/spreadsheet.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gradebook Explorer</title>
+  <!-- Lab CSS -->
+  <link rel="stylesheet" href="../css/spreadsheet.css" />
+  <!-- jQuery (Lab 05) -->
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+  <!-- D3 (Lab 06) -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <!-- Lab JS -->
+  <script src="../js/gradebook.js" defer></script>
+  <script src="../js/chart.js" defer></script>
+  <script src="../js/spreadsheet.js" defer></script>
+</head>
+<body>
+
+  
+  <header class="page-header">
+    <h1>Gradebook Explorer</h1>
+    <p class="subtitle">
+      Explore a gradebook by selecting rows/columns, editing marks, and visualizing grade distributions.
+    </p>
+  </header>
+
+  <main class="page-main">
+
+    <!-- Summary panel -->
+    <section id="summary-panel" aria-live="polite">
+      <h2>Selection Summary</h2>
+
+      <!-- Five horizontal stat boxes -->
+      <div class="summary-stats">
+        <div class="stat-box">
+          <div class="stat-label">Selected</div>
+          <div class="stat-value" id="summary-label">None: —</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Count</div>
+          <div class="stat-value" id="summary-count">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Mean</div>
+          <div class="stat-value" id="summary-mean">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Min</div>
+          <div class="stat-value" id="summary-min">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Max</div>
+          <div class="stat-value" id="summary-max">—</div>
+        </div>
+      </div>
+
+      <div id="instructions-box">
+        <h3>Instructions</h3>
+        <ul>
+          <li>Click a <strong>column header</strong> to select an assessment.</li>
+          <li>Click a <strong>row header</strong> to select a student.</li>
+          <li>Click a <strong>grade cell</strong> to edit; press <strong>ENTER</strong> to save.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="gradebook-card">
+      <h2>Gradebook</h2>
+      <div id="table-container">
+        <p class="loading-msg">Loading gradebook…</p>
+      </div>
+    </section>
+
+    <!-- Chart card (hidden until a selection is made) -->
+    <section id="chart-wrapper">
+      <h2>Grade Distribution</h2>
+      <div id="chart-container"></div>
+    </section>
+
+  </main>
+
+</body>
+</html>
